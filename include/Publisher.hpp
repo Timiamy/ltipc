@@ -1,7 +1,7 @@
 #pragma once
 #include <RingBuffer.hpp>
 
-namespace ltsm {
+namespace ltipc {
 
 template <typename T, uint8_t MaxSub>
 class Publisher {
@@ -9,12 +9,12 @@ class Publisher {
     RingBuffer<T, MaxSub> ring_buffer_;
 
     public:
-    Publisher(): ring_buffer_(true, 0){}
+    Publisher(): ring_buffer_({}){}
 
-    void Send(const T* data)
+    void Send(const T& data) noexcept
     {
         ring_buffer_.Write(data);
     }
     
 };
-}  // namespace ltsm
+}  // namespace ltipc

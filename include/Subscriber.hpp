@@ -1,21 +1,21 @@
 #pragma once
 #include <RingBuffer.hpp>
 
-namespace ltsm {
+namespace ltipc {
 
 template <typename T, uint8_t MaxSub, uint CurSub>
 class Subscriber {
    private:
-    RingBuffer<T, 2> ring_buffer_;
+    RingBuffer<T, MaxSub> ring_buffer_;
 
     public:
-    Subscriber(): ring_buffer_(false, CurSub){}
+    Subscriber(): ring_buffer_(CurSub){}
 
-    T Recevie()
+    T Recevie() noexcept
     {
         return ring_buffer_.Read();
     }
 
     
 };
-}  // namespace ltsm
+}  // namespace ltipc

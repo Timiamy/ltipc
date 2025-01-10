@@ -3,7 +3,7 @@
 
 struct Test1
 {
-    long l;
+    size_t l;
     int i;
     char c;
 };

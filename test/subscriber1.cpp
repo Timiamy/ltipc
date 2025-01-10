@@ -9,7 +9,7 @@ int main(int argc, char const *argv[])
     (void) argc;
     (void) argv;
 
-    ltsm::Subscriber<Test1,2, 0> sub1;
+    ltipc::Subscriber<Test1,2, 0> sub1;
 
     while (true)
     {

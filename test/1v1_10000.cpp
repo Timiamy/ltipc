@@ -14,7 +14,7 @@ struct timespec start, end;
 template <size_t SubIndex>
 void createSubscriberTherad() {
     std::thread([]() {
-        ltipc::Subscriber<Test1, kMaxThread, SubIndex> sub;
+        ltipc::Subscriber<Test1, kMaxThread, SubIndex + 1> sub;
         while (true) {
             Test1 recv = sub.Recevie();
             clock_gettime(CLOCK_MONOTONIC, &end);
